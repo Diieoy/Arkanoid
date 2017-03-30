@@ -40,4 +40,23 @@ public class Player {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public boolean equals(Object obj){
+        if(obj == null){
+            return false;
+        }
+
+        if(obj.getClass() != Player.class){
+            return false;
+        }
+
+        Player player = (Player) obj;
+
+        if(this.id != player.id){
+            return false;
+        }
+
+        return true;
+    }
 }

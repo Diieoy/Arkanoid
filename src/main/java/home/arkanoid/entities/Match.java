@@ -41,4 +41,23 @@ public class Match {
     public void setScore(int score) {
         this.score = score;
     }
+
+    @Override
+    public boolean equals(Object obj){
+        if(obj == null){
+            return false;
+        }
+
+        if(obj.getClass() != Player.class){
+            return false;
+        }
+
+        Match match = (Match) obj;
+
+        if(this.id != match.id){
+            return false;
+        }
+
+        return true;
+    }
 }
