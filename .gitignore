@@ -1,2 +1,4 @@
 .idea/*
 *.iml
+src/main/java/home/arkanoid/entities/
+src/test/
