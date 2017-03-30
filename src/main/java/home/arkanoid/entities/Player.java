@@ -1,5 +1,9 @@
 package home.arkanoid.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "player")
 
 public class Player {
 
@@ -8,7 +12,9 @@ public class Player {
     private String password;
     private String email;
 
-
+    @Column(name = "id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -17,6 +23,7 @@ public class Player {
         this.id = id;
     }
 
+    @Column(name = "nick_name")
     public String getNick_name() {
         return nick_name;
     }
@@ -25,6 +32,7 @@ public class Player {
         this.nick_name = nick_name;
     }
 
+    @Column(name = "password")
     public String getPassword() {
         return password;
     }
@@ -33,6 +41,7 @@ public class Player {
         this.password = password;
     }
 
+    @Column(name = "email")
     public String getEmail() {
         return email;
     }

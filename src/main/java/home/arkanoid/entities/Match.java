@@ -1,7 +1,11 @@
 package home.arkanoid.entities;
 
 
+import javax.persistence.*;
 import java.util.Date;
+
+@Entity
+@Table(name = "Match")
 
 public class Match {
 
@@ -10,6 +14,10 @@ public class Match {
     private Date match_time;
     private int score;
 
+
+    @Column(name = "id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -18,6 +26,7 @@ public class Match {
         this.id = id;
     }
 
+    @Column(name = "player_id")
     public int getPlayer_id() {
         return player_id;
     }
@@ -26,6 +35,7 @@ public class Match {
         this.player_id = player_id;
     }
 
+    @Column(name = "match_time")
     public Date getMatch_time() {
         return match_time;
     }
@@ -33,7 +43,7 @@ public class Match {
     public void setMatch_time(Date match_time) {
         this.match_time = match_time;
     }
-
+    @Column(name = "score")
     public int getScore() {
         return score;
     }
