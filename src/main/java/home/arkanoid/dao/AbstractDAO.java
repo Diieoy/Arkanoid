@@ -1,5 +1,13 @@
-package java.home.arkanoid.dao;
+package home.arkanoid.dao;
 
 
-public interface AbstractDAO {
+import java.util.List;
+
+public interface AbstractDAO<T> {
+
+    void insert(T data);
+    void update(T data);
+    void delete(T data);
+    T findByID(int id);
+    List<T> getAll();
 }
