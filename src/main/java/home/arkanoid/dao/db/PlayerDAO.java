@@ -18,37 +18,43 @@ public class PlayerDAO implements AbstractDAO<Player> {
 
     @Override
     public void insert(Player data) {
+        Session session = factory.openSession();    //псевдо-подключение игрока
+        Transaction transaction = session.beginTransaction();   //набор запросов к базе
         try{
-            Session session = factory.openSession();
-            Transaction transaction = session.beginTransaction();
             session.save(data);
             transaction.commit();
         } catch (HibernateException e){
             e.printStackTrace();
+        } finally {
+            transaction.rollback();
         }
     }
 
     @Override
     public void update(Player data) {
+        Session session = factory.openSession();
+        Transaction transaction = session.beginTransaction();
         try{
-            Session session = factory.openSession();
-            Transaction transaction = session.beginTransaction();
             session.update(data);
             transaction.commit();
         } catch (HibernateException e){
             e.printStackTrace();
+        } finally {
+            transaction.rollback();
         }
     }
 
     @Override
     public void delete(Player data) {
+        Session session = factory.openSession();
+        Transaction transaction = session.beginTransaction();
         try{
-            Session session = factory.openSession();
-            Transaction transaction = session.beginTransaction();
             session.delete(data);
             transaction.commit();
         } catch (HibernateException e){
             e.printStackTrace();
+        } finally {
+            transaction.rollback();
         }
     }
 
@@ -56,13 +62,15 @@ public class PlayerDAO implements AbstractDAO<Player> {
     public Player findByID(int id) {
         Player player = null;
 
+        Session session = factory.openSession();
+        Transaction transaction = session.beginTransaction();
         try{
-            Session session = factory.openSession();
-            Transaction transaction = session.beginTransaction();
             player = session.load(Player.class, id);
             transaction.commit();
         } catch (HibernateException e){
             e.printStackTrace();
+        } finally {
+            transaction.rollback();
         }
         return player;
     }
