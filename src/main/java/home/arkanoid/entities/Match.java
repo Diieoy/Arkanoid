@@ -43,6 +43,7 @@ public class Match {
     public void setMatch_time(Date match_time) {
         this.match_time = match_time;
     }
+
     @Column(name = "score")
     public int getScore() {
         return score;
