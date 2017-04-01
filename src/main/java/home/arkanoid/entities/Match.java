@@ -6,14 +6,12 @@ import java.util.Date;
 
 @Entity
 @Table(name = "Match")
-
 public class Match {
 
     private int id;
     private int player_id;
     private Date match_time;
     private int score;
-
 
     @Column(name = "id")
     @Id
