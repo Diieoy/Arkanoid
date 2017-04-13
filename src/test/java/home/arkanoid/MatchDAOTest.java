@@ -17,7 +17,10 @@ import java.util.List;
 public class MatchDAOTest{
 
     @Inject
-    private AbstractDAO<Match> dao;
+    private AbstractDAO<Match> dao_match;
+
+    @Inject
+    private AbstractDAO<Player> dao_player;
 
     @Before
     public void loadModule(){
@@ -27,19 +30,20 @@ public class MatchDAOTest{
 
     @Test
     public void createDAO(){
-        Assert.assertNotNull(dao);
+        Assert.assertNotNull(dao_match);
     }
 
     @Test
     public void addPlayerDAO(){
+        dao_player.insert(new Player());
         Match match = new Match();
         match.setPlayer(new Player());
         match.setMatch_time(new java.util.Date ());
         match.setScore(100);
 
-        dao.insert(match);
+        dao_match.insert(match);
 
-        List<Match> matches = dao.getAll();
+        List<Match> matches = dao_match.getAll();
 
         Assert.assertNotEquals(0, matches.size());
     }
