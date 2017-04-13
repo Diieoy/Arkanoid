@@ -35,9 +35,10 @@ public class MatchDAOTest{
 
     @Test
     public void addPlayerDAO(){
-        dao_player.insert(new Player());
+        Player player = new Player();
+        dao_player.insert(player);
         Match match = new Match();
-        match.setPlayer(new Player());
+        match.setPlayer(player);
         match.setMatch_time(new java.util.Date ());
         match.setScore(100);
 

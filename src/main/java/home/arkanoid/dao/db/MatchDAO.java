@@ -24,9 +24,7 @@ public class MatchDAO implements AbstractDAO<Match>{
         try{
             session.save(data);
             transaction.commit();
-        } catch (HibernateException e){
-            e.printStackTrace();
-        } finally {
+        } catch (Exception e){
             transaction.rollback();
         }
     }
@@ -38,9 +36,7 @@ public class MatchDAO implements AbstractDAO<Match>{
         try{
             session.update(data);
             transaction.commit();
-        } catch (HibernateException e){
-            e.printStackTrace();
-        } finally {
+        } catch (Exception e){
             transaction.rollback();
         }
     }
@@ -52,9 +48,7 @@ public class MatchDAO implements AbstractDAO<Match>{
         try{
             session.delete(data);
             transaction.commit();
-        } catch (HibernateException e){
-            e.printStackTrace();
-        } finally {
+        } catch (Exception e){
             transaction.rollback();
         }
     }
@@ -68,9 +62,7 @@ public class MatchDAO implements AbstractDAO<Match>{
         try{
             match = session.load(Match.class, id);
             transaction.commit();
-        } catch (HibernateException e){
-            e.printStackTrace();
-        } finally {
+        } catch (Exception e){
             transaction.rollback();
         }
         return match;
