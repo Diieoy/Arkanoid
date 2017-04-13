@@ -5,13 +5,14 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "Match")
+@Table(name = "matches")
 public class Match {
 
     private int id;
-    private int player_id;
     private Date match_time;
     private int score;
+
+    private Player player;
 
     @Column(name = "id")
     @Id
@@ -24,13 +25,14 @@ public class Match {
         this.id = id;
     }
 
-    @Column(name = "player_id")
-    public int getPlayer_id() {
-        return player_id;
+    @JoinColumn(name = "player_id")
+    @ManyToOne
+    public Player getPlayer() {
+        return player;
     }
 
-    public void setPlayer_id(int player_id) {
-        this.player_id = player_id;
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     @Column(name = "match_time")

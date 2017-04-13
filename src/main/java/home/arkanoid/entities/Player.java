@@ -1,9 +1,10 @@
 package home.arkanoid.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-@Table(name = "player")
+@Table(name = "players")
 public class Player {
 
     private int id;
@@ -11,11 +12,11 @@ public class Player {
     private String password;
     private String email;
 
+    private Set<Match> matches;
+
     @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-    @JoinColumn(name = "player_id")
     public int getId() {
         return id;
     }
@@ -68,5 +69,14 @@ public class Player {
         }
 
         return true;
+    }
+
+    @OneToMany
+    public Set<Match> getMatches() {
+        return matches;
+    }
+
+    public void setMatches(Set<Match> matches) {
+        this.matches = matches;
     }
 }

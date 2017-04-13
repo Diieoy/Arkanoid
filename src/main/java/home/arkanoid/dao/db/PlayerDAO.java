@@ -23,9 +23,7 @@ public class PlayerDAO implements AbstractDAO<Player> {
         try{
             session.save(data);
             transaction.commit();
-        } catch (HibernateException e){
-            e.printStackTrace();
-        } finally {
+        } catch (Exception e){
             transaction.rollback();
         }
     }
@@ -37,9 +35,7 @@ public class PlayerDAO implements AbstractDAO<Player> {
         try{
             session.update(data);
             transaction.commit();
-        } catch (HibernateException e){
-            e.printStackTrace();
-        } finally {
+        } catch (Exception e){
             transaction.rollback();
         }
     }
@@ -51,9 +47,7 @@ public class PlayerDAO implements AbstractDAO<Player> {
         try{
             session.delete(data);
             transaction.commit();
-        } catch (HibernateException e){
-            e.printStackTrace();
-        } finally {
+        }  catch (Exception e){
             transaction.rollback();
         }
     }
@@ -67,9 +61,7 @@ public class PlayerDAO implements AbstractDAO<Player> {
         try{
             player = session.load(Player.class, id);
             transaction.commit();
-        } catch (HibernateException e){
-            e.printStackTrace();
-        } finally {
+        } catch (Exception e){
             transaction.rollback();
         }
         return player;
