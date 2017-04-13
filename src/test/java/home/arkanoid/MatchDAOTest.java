@@ -18,7 +18,6 @@ public class MatchDAOTest{
 
     @Inject
     private AbstractDAO<Match> dao_match;
-
     @Inject
     private AbstractDAO<Player> dao_player;
 
@@ -26,6 +25,8 @@ public class MatchDAOTest{
     public void loadModule(){
         Injector injector = Guice.createInjector(new ProdModule());
         injector.injectMembers(this);
+
+
     }
 
     @Test
@@ -47,5 +48,14 @@ public class MatchDAOTest{
         List<Match> matches = dao_match.getAll();
 
         Assert.assertNotEquals(0, matches.size());
+    }
+
+    @Test
+    public void getMatchDAO(){
+        Match match = new Match();
+        dao_match.insert(match);
+        Match mtch = dao_match.findByID(1);
+
+        Assert.assertEquals(1, mtch);
     }
 }

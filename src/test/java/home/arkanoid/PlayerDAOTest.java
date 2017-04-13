@@ -43,4 +43,13 @@ public class PlayerDAOTest {
 
         Assert.assertNotEquals(0, players.size());
     }
+
+    @Test
+    public void getPlayerDAO(){
+        Player player = new Player();
+        player.setNick_name("Man");
+        dao.insert(player);
+        Player plr = dao.findByID(1);
+        Assert.assertEquals("Man", plr);
+    }
 }
