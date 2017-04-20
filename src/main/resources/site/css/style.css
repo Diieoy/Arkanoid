@@ -1,0 +1,83 @@
+@font-face{
+	font-family: Ringbear Medium;
+	src:url(../Fonts/Ringbear%20Medium.ttf);
+}
+
+body{
+	background-image: url(../images/Background.png);
+	margin: 20px;
+	text-align: center;
+	font-size: 25px;
+	font-family: Ringbear Medium;
+}
+
+table{
+	border-collapse: collapse;
+	border-color: #05EBD8;
+	border-style: solid;
+	width: 700px;
+	margin: auto;
+	text-align: center;
+	font-size: 20px;
+	-webkit-box-shadow: 0px 0px 48px 1px rgba(0,255,255,1);
+	-moz-box-shadow: 0px 0px 48px 1px rgba(0,255,255,1);
+	box-shadow: 0px 0px 48px 1px rgba(0,255,255,1);
+}
+
+th{
+	background-color: #075DD2;
+	color: white;
+	padding: 5px;
+}
+
+td{
+	background-color: #03D7DA;
+	padding: 10px;
+}
+
+caption{
+	font-size: 40px;
+	font-weight: bold;
+	padding-bottom: 10px; 
+}
+
+.btn-meny{
+	outline: inherit;
+	display: table;
+	margin: 15px auto 15px auto;
+	font-family: Ringbear Medium;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 20px;
+	padding: 20px;
+	background-color: #03D7DA;
+	-moz-border-radius: 35px 35px 35px 35px;
+	-webkit-border-radius: 35px 35px 35px 35px;
+	border: 0px solid #065fcc;
+	width: 400px;
+	-webkit-box-shadow: 0px 0px 48px 1px rgba(0,255,255,1);
+	-moz-box-shadow: 0px 0px 48px 1px rgba(0,255,255,1);
+	box-shadow: 0px 0px 48px 1px rgba(0,255,255,1);
+} 
+
+.btn-meny:hover{
+	color: white;
+    background: #8D4AC1;
+    box-shadow: none;
+    transition: 0.3s;
+} 
+
+#btn-back{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	font-size: 50px;
+	margin-top: 40px;
+	margin-left: 40px;
+}
+
+a{
+	text-decoration: none;
+	color: inherit;
+}
+
