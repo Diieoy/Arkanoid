@@ -19,6 +19,7 @@
 ***
   1. Описание возможных фигур в (src/main/resources/Фигуры.jpg).
   2. Описание БД (src/main/resources/Схема БД.jpg).
+  3. Сайт для игры (src/main/resources/site).
   
 ***
 Запросы:
