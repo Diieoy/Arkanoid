@@ -1,26 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="css/style.css">
-	<title>Arkanoid</title>
-</head>
-<body>
-	<h1>Добро пожаловать на сайт игры <br> ARKANOID</h1>
-	<div class="meny">
-			<div class="main-meny">
-				<a href="#">Скачать игру</a>
-				<a href="table.html">Таблица &nbsp лидеров</a>
-				<a href="#">Топ по очкам</a>
-				<a href="#">Топ по времени в игре</a>
-				<a href="#">Зарегистрироваться</a>
-			</div>
 
-			<div class="login-page">
-				<input type="text" placeholder="username">
-				<input type="password" placeholder="password">
-				<button class="lg">login</button>
-			</div>
-	</div>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js"></script>
+    <title>Arkanoid</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="my-links">
+                <a href="https://vk.com/disappointmentisineachofyou" target="_blank"><i class="fa fa-vk" aria-hidden="true"><span><br>Связь с вождёМ</span></i></a>
+            </div>
+            <div class="logo">
+                <h1>отета&nbsp &nbspсайт, да&nbsp ну&nbsp на...</h1>
+            </div>
+            <div class="btn-reg">
+                <div>
+                    <button onclick="showPage('rg-pg')">РегистрациЯ</button>
+                </div>
+                <div>
+                    <button onclick="showPage('lg-pg')">ВхоД</button>
+                </div>
+            </div>
+        </header>
+        <div class="content">
+            <div id="lg-pg" class="login-page" style="visibility: hidden;">
+                <input type="text" placeholder="username">
+                <input type="password" placeholder="password">
+                <button>ВойтИ</button>
+            </div>
+            <div id="rg-pg" class="login-page" style="visibility: hidden;">
+                <input type="text" placeholder="username">
+                <input type="password" placeholder="password">
+                <input type="text" placeholder="email">
+                <button>ЗарегистрирыватьсЯ</button>
+            </div>
+            <div class="meny">
+                <div class="main-meny">
+                    <a href="#">Скачать игру</a>
+                    <a href="table.html">Таблица &nbsp лидеров</a>
+                    <a href="#">Топ по очкам</a>
+                    <a href="#">Топ по времени в игре</a>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>Какие права? Не знаю никаких прав. <span>&copy;</span></p>
+        </footer>
+    </div>
 </body>
+
 </html>
