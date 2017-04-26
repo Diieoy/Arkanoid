@@ -11,7 +11,6 @@ public class Match {
     private int id;
     private Date match_time;
     private int score;
-
     private Player player;
 
     @Column(name = "id")

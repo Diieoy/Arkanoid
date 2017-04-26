@@ -171,10 +171,11 @@
 	/* Футер */
 	
 	footer {
+		cursor: default;
 		position: absolute;
 		bottom: 0;
 		width: 100%;
-	    color: white;
+	    color: black;
 	    padding: 20px 0;
 	    background-color: rgba( 10, 149, 159, 0.5);
 	    text-align: center;

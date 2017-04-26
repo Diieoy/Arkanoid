@@ -11,7 +11,6 @@ public class Player {
     private String nick_name;
     private String password;
     private String email;
-
     private Set<Match> matches;
 
     @Column(name = "id")
