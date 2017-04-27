@@ -37,13 +37,6 @@ public class MatchesServiceDAO implements MatchesService{
     }
 
     @Override
-    public void remove(int playerId) {
-        Player player = playersDAO.findByID(playerId);
-
-        playersDAO.delete(player);
-    }
-
-    @Override
     public Match getInfo(int id) {
         return matchesDAO.findByID(id);
     }
