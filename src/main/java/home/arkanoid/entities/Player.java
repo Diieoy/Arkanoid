@@ -1,6 +1,7 @@
 package home.arkanoid.entities;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -11,7 +12,7 @@ public class Player {
     private String nick_name;
     private String password;
     private String email;
-    private Set<Match> matches;
+    private List<Match> matches;
 
     @Column(name = "id")
     @Id
@@ -71,11 +72,11 @@ public class Player {
     }
 
     @OneToMany
-    public Set<Match> getMatches() {
+    public List<Match> getMatches() {
         return matches;
     }
 
-    public void setMatches(Set<Match> matches) {
+    public void setMatches(List<Match> matches) {
         this.matches = matches;
     }
 }

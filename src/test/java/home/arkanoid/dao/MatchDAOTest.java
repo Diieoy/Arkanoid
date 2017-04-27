@@ -1,4 +1,4 @@
-package home.arkanoid;
+package home.arkanoid.dao;
 
 
 import com.google.inject.Guice;
@@ -25,8 +25,6 @@ public class MatchDAOTest{
     public void loadModule(){
         Injector injector = Guice.createInjector(new ProdModule());
         injector.injectMembers(this);
-
-
     }
 
     @Test

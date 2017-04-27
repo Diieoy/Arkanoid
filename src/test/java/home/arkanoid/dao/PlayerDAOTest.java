@@ -1,4 +1,4 @@
-package home.arkanoid;
+package home.arkanoid.dao;
 
 
 import com.google.inject.Guice;

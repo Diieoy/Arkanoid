@@ -7,7 +7,7 @@ import home.arkanoid.entities.Match;
 import home.arkanoid.entities.Player;
 import home.arkanoid.services.MatchesService;
 
-import java.util.Date;
+import java.util.*;
 
 public class MatchesServiceDAO implements MatchesService{
 
@@ -34,6 +34,29 @@ public class MatchesServiceDAO implements MatchesService{
 
             return match.getId();
         }
+    }
+
+    @Override
+    public List<Integer> bestNumMatches(int playerId, int number) {
+
+        Player player = playersDAO.findByID(playerId);
+        List<Match> allMatches = player.getMatches();
+
+        Collections.sort(allMatches, (Match o1, Match o2) -> Integer.compare(o2.getScore(), o1.getScore()));
+
+        //List<Integer> myMatch - добавляем сюда первые N матчей из allMatches
+        List<Integer> myMatch = new ArrayList<>();
+
+        /*Если нужно отсортировать список (List) или множество (Set), используйте структуру TreeSet для сортировки.
+        // TreeSet
+
+        Set<ObjectName> sortedSet = new TreeSet<ObjectName>(new Comparator<ObjectName>() {
+            public int compare(ObjectName o1, ObjectName o2) {
+                return o1.toString().compareTo(o2.toString());
+            }
+        });
+        sortedSet.addAll(unsortedSet);*/
+        return myMatch;
     }
 
     @Override
