@@ -38,7 +38,9 @@ public class MatchesServiceDAO implements MatchesService{
 
     @Override
     public void remove(int playerId) {
-        //??удалять все матчи?
+        Player player = playersDAO.findByID(playerId);
+
+        playersDAO.delete(player);
     }
 
     @Override
