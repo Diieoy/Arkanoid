@@ -1,8 +1,6 @@
 package home.arkanoid.utils;
 
 
-import home.arkanoid.entities.Player;
-
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

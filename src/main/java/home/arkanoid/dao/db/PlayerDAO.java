@@ -2,16 +2,16 @@ package home.arkanoid.dao.db;
 
 
 import com.google.inject.Inject;
-import home.arkanoid.dao.AbstractDAO;
+import home.arkanoid.dao.AbstractPlayerDAO;
+import home.arkanoid.entities.Match;
 import home.arkanoid.entities.Player;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.hibernate.*;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
-public class PlayerDAO implements AbstractDAO<Player> {
+public class PlayerDAO implements AbstractPlayerDAO {
 
     @Inject
     private SessionFactory factory;
@@ -71,5 +71,28 @@ public class PlayerDAO implements AbstractDAO<Player> {
     public List<Player> getAll() {
         Session session = factory.openSession();
         return (List<Player>) session.createCriteria(Player.class).list();
+    }
+
+    @Override
+    public List<Player> searchPlayer(String playername) {
+
+        Session session = factory.openSession();
+
+        Criteria criteria = session.createCriteria(Player.class);
+        criteria.add(Restrictions.like("playername", playername + "%"));
+
+        return (List<Player>)criteria.list();
+    }
+
+    @Override
+    public List<Match> getBestPlayerMatches(Player player, int maxCount) {
+        
+        Session session = factory.openSession();
+        Criteria criteria = session.createCriteria(Match.class);
+        criteria.add(Restrictions.eq("player", player));
+        criteria.addOrder(Order.desc("score"));
+        criteria.setMaxResults(maxCount);
+
+        return (List<Match>) criteria.list();
     }
 }

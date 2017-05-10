@@ -38,11 +38,6 @@ public class RegisterServlet extends HttpServlet {
     public void doPost(HttpServletRequest request,
                       HttpServletResponse response) throws IOException {
 
-        /*PrintWriter out = response.getWriter();
-        response.getWriter().println(request.getParameter("username"));
-        response.getWriter().println(request.getParameter("password"));
-        response.getWriter().println(request.getParameter("email"));*/
-
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
@@ -53,7 +48,7 @@ public class RegisterServlet extends HttpServlet {
             response.getWriter().println("Регистрация успешна!");
             response.getWriter().println("Ваш id = " + result);
         }else{
-            response.getWriter().println("Вы чорны!");
+            response.getWriter().println("Ошибка регистрации");
         }
     }
 }

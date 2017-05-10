@@ -6,6 +6,7 @@ import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.google.inject.TypeLiteral;
 import home.arkanoid.dao.AbstractDAO;
+import home.arkanoid.dao.AbstractPlayerDAO;
 import home.arkanoid.dao.db.MatchDAO;
 import home.arkanoid.dao.db.PlayerDAO;
 import home.arkanoid.entities.Match;
@@ -26,6 +27,7 @@ public class ProdModule extends AbstractModule{
     @Override
     protected void configure() {
         bind(new TypeLiteral<AbstractDAO<Player>>(){}).to(PlayerDAO.class);
+        bind(AbstractPlayerDAO.class).to(PlayerDAO.class);
         bind(new TypeLiteral<AbstractDAO<Match>>(){}).to(MatchDAO.class);
         bind(PlayersService.class).to(PlayersServiceDAO.class);
         bind(MatchesService.class).to(MatchesServiceDAO.class);

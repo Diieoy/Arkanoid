@@ -11,4 +11,5 @@ public interface PlayersService {
     void delete(int playerId);
     Player getInfo(int id);
     List<Integer> searchPlayer(String nick, String email);
+    List<Integer> getBestPlayerMatches(int playerId, int maxCount);
 }

@@ -72,4 +72,9 @@ public class PlayersServiceDAO implements PlayersService{
 
         return ids;
     }
+
+    @Override
+    public List<Integer> getBestPlayerMatches(int userId, int maxCount) {
+        return null;
+    }
 }
