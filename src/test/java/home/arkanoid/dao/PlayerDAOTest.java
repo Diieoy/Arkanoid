@@ -96,6 +96,6 @@ public class PlayerDAOTest {
         List<Match> actual = dao.getBestPlayerMatches(player, 2);
 
         Assert.assertArrayEquals(expected.toArray(), actual.toArray());
-        //saдоделать
+        //доделать
     }
 }
