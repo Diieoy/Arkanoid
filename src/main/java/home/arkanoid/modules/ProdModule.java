@@ -10,6 +10,10 @@ import home.arkanoid.dao.db.MatchDAO;
 import home.arkanoid.dao.db.PlayerDAO;
 import home.arkanoid.entities.Match;
 import home.arkanoid.entities.Player;
+import home.arkanoid.services.MatchesService;
+import home.arkanoid.services.PlayersService;
+import home.arkanoid.services.dao.MatchesServiceDAO;
+import home.arkanoid.services.dao.PlayersServiceDAO;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -23,6 +27,8 @@ public class ProdModule extends AbstractModule{
     protected void configure() {
         bind(new TypeLiteral<AbstractDAO<Player>>(){}).to(PlayerDAO.class);
         bind(new TypeLiteral<AbstractDAO<Match>>(){}).to(MatchDAO.class);
+        bind(PlayersService.class).to(PlayersServiceDAO.class);
+        bind(MatchesService.class).to(MatchesServiceDAO.class);
     }
 
     @Provides

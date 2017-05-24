@@ -54,6 +54,6 @@ public class MatchDAOTest{
         dao_match.insert(match);
         Match mtch = dao_match.findByID(1);
 
-        Assert.assertEquals(1, mtch);
+        Assert.assertEquals(1, mtch.getId());
     }
 }

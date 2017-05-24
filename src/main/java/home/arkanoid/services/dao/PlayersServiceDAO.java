@@ -5,10 +5,13 @@ import com.google.inject.Inject;
 import home.arkanoid.dao.AbstractDAO;
 import home.arkanoid.entities.Player;
 import home.arkanoid.services.PlayersService;
+import home.arkanoid.utils.PasswordUtils;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PlayersServiceDAO implements PlayersService{
 
@@ -21,7 +24,7 @@ public class PlayersServiceDAO implements PlayersService{
         Player player = new Player();
         player.setNick_name(nickname);
         player.setEmail(email);
-        player.setPassword(PlayersServiceDAO.md5Custom(password));
+        player.setPassword(PasswordUtils.md5Custom(password));
 
         playersDAO.insert(player);
 
@@ -42,26 +45,31 @@ public class PlayersServiceDAO implements PlayersService{
         return playersDAO.findByID(id);
     }
 
-    private static String md5Custom(String st) {
-        MessageDigest messageDigest;
-        byte[] digest = new byte[0];
+    @Override
+    public List<Integer> searchPlayer(String nick, String email) {
+        List<Player> players = playersDAO.getAll();
 
-        try {
-            messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.reset();
-            messageDigest.update(st.getBytes());
-            digest = messageDigest.digest();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+        List<Integer> ids = new ArrayList<>();
+
+        for(Player p : players){
+            Player temp = p;
+            if(nick != null){
+                if(!p.getNick_name().contains(nick)){
+                    temp = null;
+                }
+            }
+
+            if(email != null){
+                if(!p.getEmail().contains(email)){
+                    temp = null;
+                }
+            }
+
+            if(temp != null){
+                ids.add(temp.getId());
+            }
         }
 
-        BigInteger bigInt = new BigInteger(1, digest);
-        String md5Hex = bigInt.toString(16);
-
-        while( md5Hex.length() < 32 ){
-            md5Hex = "0" + md5Hex;
-        }
-
-        return md5Hex;
+        return ids;
     }
 }
